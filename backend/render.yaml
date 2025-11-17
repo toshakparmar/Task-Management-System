@@ -15,6 +15,9 @@ services:
         sync: false
       - key: CLIENT_URL
         sync: false
+      - key: CLIENT_URLS
+        value: "https://task-management-system-xi-hazel.vercel.app"
+        sync: false
       - key: NODE_ENV
         value: production
       - key: NPM_CONFIG_PRODUCTION

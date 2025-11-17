@@ -9,6 +9,9 @@ const app: Application = express();
 const clientUrlsEnv = process.env.CLIENT_URLS || process.env.CLIENT_URL || 'http://localhost:3000';
 const allowedOrigins = clientUrlsEnv.split(',').map(u => u.trim()).filter(Boolean);
 
+// Log allowed origins at startup to help debug CORS in deployed environments
+console.log('CORS allowed origins:', allowedOrigins);
+
 const corsOptions = {
     origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
         if (!origin) return callback(null, true);
