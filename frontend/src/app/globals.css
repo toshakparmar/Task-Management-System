@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+  }
+}
+
+@layer base {
+  html,
+  body {
+    background-color: #f9fafb; /* gray-50 */
+    color: #1f2937; /* gray-800 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Improve focus visibility */
+  :focus {
+    outline: none;
+  }
+
+  .focus-ring:focus {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  }
+}
+
+@layer components {
+  .app-container {
+    max-width: 80rem; /* 7xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .app-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .app-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .card {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+}

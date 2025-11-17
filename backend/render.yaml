@@ -1,0 +1,21 @@
+# Render manifest (sample) — updated to use the new npm script for deployment.
+services:
+  - type: web
+    name: task-management-backend
+    env: node
+    plan: free
+    branch: main
+    buildCommand: "cd backend && npm ci && npm run deploy:render"
+    startCommand: "cd backend && npm start"
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: NODE_ENV
+        value: production
+# Notes: set real secret values in the Render dashboard. This manifest is a convenience; you
+# can edit the buildCommand to suit your CI preferences.
