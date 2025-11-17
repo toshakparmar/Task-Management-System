@@ -17,5 +17,8 @@ services:
         sync: false
       - key: NODE_ENV
         value: production
+      - key: NPM_CONFIG_PRODUCTION
+        value: "false"
+        sync: false
 # Notes: set real secret values in the Render dashboard. This manifest is a convenience; you
 # can edit the buildCommand to suit your CI preferences.
