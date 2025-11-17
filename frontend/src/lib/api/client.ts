@@ -75,7 +75,7 @@ apiClient.interceptors.response.use(
 
       if (!refreshToken) {
         storage.clearAuth();
-        window.location.href = '/login';
+        window.location.href = '/auth/login';
         return Promise.reject(error);
       }
 

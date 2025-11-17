@@ -3,10 +3,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 
 export const Header: React.FC = () => {
   const { user, logout } = useAuth();
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const nav = [
@@ -82,7 +84,10 @@ export const Header: React.FC = () => {
               <div className="flex items-center gap-2">
                 <Button
                   variant="secondary"
-                  onClick={logout}
+                  onClick={async () => {
+                    await logout();
+                    router.push("/auth/login");
+                  }}
                   className="px-3 py-1 text-sm"
                 >
                   Logout
@@ -111,7 +116,10 @@ export const Header: React.FC = () => {
                 <div className="text-sm text-gray-700 mb-2">{user?.email}</div>
                 <Button
                   variant="secondary"
-                  onClick={logout}
+                  onClick={async () => {
+                    await logout();
+                    router.push("/auth/login");
+                  }}
                   className="w-full py-2"
                 >
                   Logout

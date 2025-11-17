@@ -19,7 +19,7 @@ export const useAuthHelpers = () => {
 
   const requireAuth = () => {
     if (!checkAuth()) {
-      router.push('/login');
+      router.push('/auth/login');
       return false;
     }
     return true;
@@ -27,7 +27,7 @@ export const useAuthHelpers = () => {
 
   const clearAuthAndRedirect = () => {
     storage.clearAuth();
-    router.push('/login');
+    router.push('/auth/login');
   };
 
   const getAuthHeaders = () => {
