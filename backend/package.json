@@ -12,7 +12,7 @@
     "prisma:migrate:dev": "prisma migrate dev",
     "prisma:migrate:deploy": "prisma migrate deploy",
     "prisma:studio": "prisma studio",
-    "deploy:render": "npx prisma generate && npx prisma migrate deploy && npm run build"
+    "deploy:render": "npm install && npx prisma generate && npx prisma migrate deploy && npm run build"
   },
   "keywords": [
     "task",

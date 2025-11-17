@@ -1,4 +1,9 @@
-import 'dotenv/config';
+try {
+  require('dotenv').config();
+} catch (e) {
+  /* dotenv not available - continue without loading .env */
+}
+
 import { defineConfig, env } from "prisma/config";
 
 export default defineConfig({
